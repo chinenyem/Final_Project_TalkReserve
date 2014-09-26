@@ -1,0 +1,44 @@
+<p>This is the order view.</p>
+
+
+<div>
+<select ng-model="selectedTopic" ng-options="obj.name in items">
+</select>
+	<select ng-model="selctedGenre">
+		<option ng-repeat="label in items[selectedTopic.id].lesson">{{label}}</option>
+	</select>
+	<br>
+	<textarea> {{selctedGenre}} </textarea>
+</div>
+			
+	<input type="text" ng-model="searchText"/>
+
+	<ul>
+	<li ng-repeat="person in items | filter:searchText" ng-show="person.live == true"> #{{people.id}} {{person.name}}</li>
+	</ul>
+	<ul>
+	<li ng-repeat="person in items | filter:searchText"
+		ng-hide="person.live == false"> #{{people.id}} {{person.name}}</li>
+	</ul>
+				
+
+	<input type="text" ng-model="newPerson" />
+	<button ng-click="addNew()">Add</button>
+
+
+
+<form >
+	<textarea ng-model="newReserve" placeholder="message"></textarea>
+	<button ng-click="addReserve(newReserve)"> Create </button>
+</form>
+
+
+<section ng-repeat="post in reserves" id="messages">
+	<h2>{{post.date }}</h2>
+	<!-- <h2>{{post.title}}</h2> -->
+	<p>{{post.message}}</p>
+</section>
+
+
+
+

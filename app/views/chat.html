@@ -1,0 +1,26 @@
+
+<h2>Chat</h2>
+
+<form>
+<input type="text" ng-model="newMessage.title" placeholder="Message...">
+  <input type="text" ng-model="newMessage.text" placeholder="Message...">
+  <button type="submit" ng-click="addMessage(newMessage);newMessage = {};">send</button>
+</form>
+
+
+
+<section ng-repeat="message in messages | reverse">
+<ul id="messages" ng-show="messages.length">
+<li>{{message.title}}</li>
+  <li>{{message.text}}</li>
+  <li>{{message.date }}</li>
+</ul>
+</section>
+{{messages | json}}
+
+<p class="alert alert-danger" ng-show="err">{{err}}</p>
+
+
+
+
+
